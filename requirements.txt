@@ -1,0 +1,8 @@
+pandas
+streamlit
+openpyxl
+altair
+pytest
+fastapi
+uvicorn
+python-multipart
