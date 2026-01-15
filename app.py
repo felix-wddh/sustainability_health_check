@@ -72,6 +72,10 @@ p, span, label, .stMarkdown {{ font-family: 'Inter', sans-serif !important; colo
 
 [data-testid="stFileUploader"] {{ background: {CARD}; border: 2px dashed {BORDER}; border-radius: 12px; padding: 1rem; }}
 [data-testid="stFileUploader"]:hover {{ border-color: {ACCENT}; }}
+[data-testid="stFileUploader"] button {{ background: #4a5568 !important; color: white !important; border: none !important; border-radius: 6px !important; }}
+[data-testid="stFileUploader"] button:hover {{ background: #5a6578 !important; }}
+[data-testid="stFileUploader"] section {{ color: {TEXT_DIM} !important; }}
+[data-testid="stFileUploader"] small {{ color: {TEXT_MUTED} !important; }}
 
 .stSelectbox > div > div {{ background: {CARD} !important; border: 1px solid {BORDER} !important; border-radius: 8px !important; color: {TEXT} !important; }}
 .stSelectbox label {{ color: {TEXT_DIM} !important; }}
