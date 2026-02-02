@@ -1,0 +1,41 @@
+name: Scheduled Dependency Refresh
+
+on:
+  schedule:
+    - cron: '0 0 1 * *' # Monthly on the 1st
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  refresh-deps:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Upgrade dependencies
+        run: |
+          uv lock --upgrade
+          uv export --format requirements-txt --output-file requirements.lock.txt
+
+      - name: Run smoke test
+        run: uv run smoke_test.py
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: monthly dependency refresh"
+          title: "Scheduled Dependency Refresh"
+          body: |
+            This is an automated dependency refresh.
+            - `uv lock --upgrade` was run.
+            - `smoke_test.py` passed in the clean environment.
+          branch: auto-dep-refresh
+          delete-branch: true

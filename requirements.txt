@@ -1,8 +1,8 @@
-pandas
-streamlit
-openpyxl
-altair
-pytest
-fastapi
-uvicorn
-python-multipart
+pandas==2.2.3
+streamlit==1.41.1
+openpyxl==3.1.5
+altair==5.5.0
+pytest==8.3.4
+fastapi==0.115.6
+uvicorn==0.34.0
+python-multipart==0.0.20

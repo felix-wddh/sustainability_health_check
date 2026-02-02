@@ -1,0 +1,16 @@
+[project]
+name = "sustainability-health-check"
+version = "0.1.0"
+description = "Sustainability health check app"
+authors = [{ name = "Felix Schmidt", email = "felix.schmidt@neonex.de" }]
+dependencies = [
+    "pandas==2.2.3",
+    "streamlit==1.41.1",
+    "openpyxl==3.1.5",
+    "altair==5.5.0",
+    "pytest==8.3.4",
+    "fastapi==0.115.6",
+    "uvicorn==0.34.0",
+    "python-multipart==0.0.20",
+]
+requires-python = ">=3.12"
